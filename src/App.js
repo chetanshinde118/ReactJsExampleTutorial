@@ -1,57 +1,53 @@
-import React, { Component } from 'react';
+import React ,{ useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-class App extends Component {
-  
- state={
-   Person:[
-   {name:"chetan", age:20},
-   {name:"harshal", age:22},
-   {name:"rakesh", age:25},
-   {name: "rahul", age:26}
-  ],
-  otherState: 'someothervalue'
- }
+const app=props=>{
+const [personsState, setPersonsState] =useState({
+Person:[
+{name:"chetan", age:25},
+{name:"rahul", age:25},
+{name:"vishal", age:25}
+],
+otherState:'some other value'
+});
 
- eventHandler=()=> {
+const switchNameHandler=()=>{
 
-     this.setState ( 
-     {  Person:[
-        {name:"chetan shinde", age:20},
-        {name:"harshal", age:22},
-        {name:"rakesh", age:25},
-        {name: "rahul", age:27}
-      ]
-         } 
-      )
- 
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello welcome to react js tutorial</h1>
-    <p> this is really working!!!!!</p>
-   
+  setPersonsState ({
+    Person:[
+    {name:"chetan shinde", age:25},
+    {name:"rahul", age:25},
+    {name:"vishal", age:25}
+    ],
+   });
+};
 
-  <button onClick={this.eventHandler}> Switch Button </button>
-  <Person name={this.state.Person[0].name} age={this.state.Person[0].age}> </Person>
-  <Person name={ this.state.Person[1].name} age={this.state.Person[1].age}></Person>
-  <Person name={this.state.Person[2].name} age={ this.state.Person[2].age}></Person>
-<Person name={this.state.Person[3].name } age={this.state.Person[3].age}></Person>
- 
-    {/* <Person name="chetan" age="20"/> 
-    <Person name="rahul" age="22"/>
-    <Person name="harshal" age="24">my Hobbies: racing </Person>
-    <Person name="rakesh" age="26"/> */}
-    
-       </div>
-      
-    );
+return(
+<div className="App">
+<h1> Hi I am react application</h1>
+<p>this is really working</p>
+<button onClick={switchNameHandler}>SwitchButton</button>
 
-// return React.createElement("div", {className: 'App'} ,null, React.createElement ("h1", null, "welcome to react first tutoriL"));
- 
-  }
-}
+<Person 
+name={personsState.Person[0].name} 
+age={personsState.Person[0].age} >
+</Person>
 
-export default App;
+<Person
+name={personsState.Person[1].name} 
+age={personsState.Person[1].age} >
+My Hobbies: Racing
+</Person>
+
+<Person 
+name={personsState.Person[2].name} 
+age={personsState.Person[2].age} 
+/>
+</div>
+);
+};
+
+export default app;
+
+

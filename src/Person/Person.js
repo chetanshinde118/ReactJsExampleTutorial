@@ -1,5 +1,5 @@
 import React from 'react';
-const Person = (props) => {
+  const Person = (props) => {
 
 //    return <p> Hello my name chetan and i am {Math.floor(Math.random() * 30 ) } year old </p>
 
