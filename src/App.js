@@ -56,8 +56,8 @@ change={this.nameChangeHandler}> My Hobbies: Racing
 
 <Person 
 name={this.state.Person[2].name} 
-age={this.state.Person[2].age} 
-/>
+age={this.state.Person[2].age}></Person> 
+
 </div>
 );
 }
