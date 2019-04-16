@@ -1,14 +1,14 @@
 import React from 'react';
-  const Person = (props) => {
+import './Person.css'; 
 
-//    return <p> Hello my name chetan and i am {Math.floor(Math.random() * 30 ) } year old </p>
-
+const Person = (props) => {
 
 return(
-<div>
+<div className='Person'>
      <p> Hello my name is {props.name} and i am {props.age}  year old </p>
      <p> {props.children}</p>
- 
+     <input type="text"  onChange= {props.change} value={props.name} />
+     
  </div>
 );
 }
