@@ -2,84 +2,87 @@ import React ,{ Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 class App extends Component {
+  
+  state = {
+   persons: [
 
-state = {
-persons: [
-{name:"Max ", age:25},
-{name:"Sam", age:25},
-{name:"Andrew", age:25}
-],
-otherState:'some other value',
-showPersons: false
+     {name : 'max', age: 29},
+     {name: 'david', age: 26},
+     {name :' danny', age : 30}
+   ],
+
+   otherState: 'some other value',
+   showPersons: false
+  
+  }
+
+switchNameHndler = ( newName ) => {
+
+this.setState({
+
+  persons: [
+
+     {name: newName, age : 29},
+     {name: 'david', age: 26},
+     {name:'danny', age: 30}
+
+  ]
+})
 }
 
-switchNameHandler = (newName)=> {
+nameChangedHandler = (event) => {
+  this.setState({
 
-  this.setState ({
-    persons:[
-    {name:newName, age:25},
-    {name:"Sam", age:25},
-    {name:"Andrew", age:25}
-    ]
-   })
-}
-
-  nameChangeHandler=(event)=>{
-  this.setState ( {
-    persons:[
-    {name:"Max", age:25},
-    {name:"Sam", age:25},
-    {name:"Andrew", age:25}
-    ]
-   })
+        persons: [
+          {name:'max', age:29},
+          {name:event.target.value, age:26},
+          {name:'danny', age:30}          
+        ]
+  })
 }
 
 togglePersonsHandler = () => {
-
-  const doesShow = this.state.showPersons;
-this.setState=({showPersons: !doesShow});
+  const doesShow= this.state.showPersons;
+  this.setState({ showPersons: !doesShow });
 }
 
+render(){
 
-render(props) {
+  const style={
+    backgroundColor: 'white',
+    font:'inherit',
+    border : '1 px solid blue',
+    padding : '8px',
+    cursor: 'pointer'
+  };
 
-  const style = {
-backgroundColor: 'white',
-font:'inherit',
-border:'1 px solid blue',
-padding: '8px',
-cursor:'pointer'
-};
+let persons = null;
 
-let persons = null
+if(this.state.showPersons ){
 
-if( this.state.showPersons ) {
+  persons = (
+    <div>
+    <Person
+    name={this.state.persons[0].name}
+    age={this.state.persons[0].age}/>
 
-  persons=(
-  <div>
-  <Person   
-    name={this.state.Person[0].name} 
-    age={this.state.Person[0].age} />
- 
 
-  <Person
-    name={this.state.Person[1].name} 
-    age={this.state.Person[1].age} 
-    click={this.switchNameHandler.bind(this, 'max!!!!')}
-    change={this.nameChangeHandler} > My Hobbies: Racing
+    <Person
+    name={this.state.persons[1].name}
+    age={this.state.persons[1].age}
+    click={this.switchNameHndler.bind(this, 'max!!!')}
+    changed={ this.nameChangedHandler }> my hobbies :racing
     </Person>
-<Person 
-name={this.state.Person[2].name } 
-age={this.state.Person[2].age } >
-</Person>
 
-</div> 
- );
+    <Person
+    name={this.state.persons[2].name}
+    age={this.state.persons[2].age}/>
+
+    </div>
+  )
 }
-
-
 return(
-<>
+
   <div className='App'>
   <h1>  HI this is react JS</h1>
   <p> Its reallly working</p>
@@ -89,10 +92,7 @@ return(
   </button>
  {persons}
   </div>
-
-</>
 );
 }
 }
-
 export default App
