@@ -15,21 +15,6 @@ class App extends Component {
    showPersons: false
   
   }
-
-switchNameHndler = ( newName ) => {
-
-this.setState({
-
-  persons: [
-
-     {name: newName, age : 29},
-     {name: 'david', age: 26},
-     {name:'danny', age: 30}
-
-  ]
-})
-}
-
 nameChangedHandler = (event) => {
   this.setState({
 
@@ -39,6 +24,14 @@ nameChangedHandler = (event) => {
           {name:'danny', age:30}          
         ]
   })
+}
+
+
+deletePersonHandler = (personIndex) => {
+const persons =  this.state.persons;
+persons.splice(personIndex, 1);
+this.setState({persons: persons})
+
 }
 
 togglePersonsHandler = () => {
@@ -62,9 +55,9 @@ if(this.state.showPersons ){
 
   persons = (
     <div>
-    {this.state.persons.map(person => {
+    {this.state.persons.map((person, index) => {
   return <Person 
-  
+  click={()=> this.deletePersonHandler(index)}
   name= {person.name}
   age= {person.age}
   />
@@ -82,7 +75,7 @@ return(
   <p> Its reallly working</p>
   <button
   style={style}
-  onClick={this.togglePersonsHandler}> Switch Button
+  onClick={this.togglePersonsHandler}>  Toggle Person..
   </button>
  {persons}
   </div>
