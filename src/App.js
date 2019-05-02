@@ -6,9 +6,9 @@ class App extends Component {
   state = {
    persons: [
 
-     {name : 'max', age: 29},
-     {name: 'david', age: 26},
-     {name :' danny', age : 30}
+     {id :'abc  ' , name : 'max', age: 29},
+     {id :'abd  ' , name: 'david', age: 26},
+     {id :'acb' , name :' danny', age : 30}
    ],
 
    otherState: 'some other value',
@@ -60,6 +60,7 @@ if(this.state.showPersons ){
   click={()=> this.deletePersonHandler(index)}
   name= {person.name}
   age= {person.age}
+  key= {person.id}
   />
     })}
     
@@ -75,7 +76,7 @@ return(
   <p> Its reallly working</p>
   <button
   style={style}
-  onClick={this.togglePersonsHandler}>  Toggle Person..
+  onClick={this.togglePersonsHandler}>  Toggle Person
   </button>
  {persons}
   </div>
