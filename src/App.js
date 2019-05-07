@@ -4,9 +4,7 @@ import Person from './Person/Person';
 class App extends Component {
   
   state = {
-   persons: [
-
-    //  {id :'cba  ' , name : 'chetan', age: 20}, 
+   persons: [ 
      {id :'abc  ' , name : 'max', age: 29},
      {id :'abd  ' , name: 'david', age: 26},
      {id :'acb' , name :' danny', age : 30}
@@ -21,15 +19,18 @@ nameChangedHandler = (event, id) => {
   return p.id === id;
 });
 
+// const person = {
+//   ...this.state.person[personIndex]
+// };
 
-  this.setState({
-        persons: [
-          // {name: "chetan", age: 20},
-          {name:event.target.value, age:29},
-          {name: 'david', age:26},
-          {name:'danny', age:30}          
-        ]
-  })
+const person = Object.assign({}, this.state.persons[personIndex] );
+
+person.name=event.target.value;
+
+const persons = [...this.state.persons];
+persons[personIndex] = person;
+
+this.setState({ persons: persons } )
 }
 
 deletePersonHandler = (personIndex) => {
@@ -47,7 +48,8 @@ togglePersonsHandler = () => {
 render(){
 
   const style={
-    backgroundColor: 'white',
+    backgroundColor: 'green',
+    color: 'white',
     font:'inherit',
     border : '1 px solid blue',
     padding : '8px',

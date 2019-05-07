@@ -1,3 +1,14 @@
 .App {
   text-align: center;
+  /* background-color: rgb(154, 255, 154) */
+}
+
+.button{
+ 
+  border-image-outset: 2cm;
+  text-align: justify;
+  text-align-last: inherit
+
+
+
 }
