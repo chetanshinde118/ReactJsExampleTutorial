@@ -70,12 +70,11 @@ if(this.state.showPersons ){
   key=  { person.id}
   
   changed ={(event)=> this.nameChangedHandler(event, person.id)}/>
-    })}
-    
-    
-    
+    })}   
     </div>
-  )
+ 
+ );
+style.backgroundColor='red';
 }
 return(
 
