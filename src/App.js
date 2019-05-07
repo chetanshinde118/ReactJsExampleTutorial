@@ -76,11 +76,23 @@ if(this.state.showPersons ){
  );
 style.backgroundColor='red';
 }
+
+const classes=[];
+if(this.state.persons.length<=2){
+
+  classes.push('red');
+}
+if(this.state.persons.length<=1){
+  classes.push('bold');
+}
+
+
+
 return(
 
   <div className='App'>
-  <h1>  HI this is react JS</h1>
-  <p> Its reallly working</p>
+  <h1> Hi this is react JS</h1>
+  <p className={ classes.join(' ') }> Its reallly working</p>
   <button
   style={style}
   onClick={this.togglePersonsHandler}>  Toggle Person

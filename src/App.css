@@ -8,7 +8,10 @@
   border-image-outset: 2cm;
   text-align: justify;
   text-align-last: inherit
-
-
-
+}
+.red{
+  color: red;
+}
+.bold{
+  font-weight : bold;
 }
