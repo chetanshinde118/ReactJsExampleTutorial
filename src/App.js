@@ -1,5 +1,6 @@
 import React ,{ Component } from 'react';
 import './App.css';
+import Radium from "radium";
 import Person from './Person/Person';
 class App extends Component {
   
@@ -18,10 +19,6 @@ nameChangedHandler = (event, id) => {
  const personIndex = this.state.persons.findIndex(p => {
   return p.id === id;
 });
-
-// const person = {
-//   ...this.state.person[personIndex]
-// };
 
 const person = Object.assign({}, this.state.persons[personIndex] );
 
@@ -53,7 +50,11 @@ render(){
     font:'inherit',
     border : '1 px solid blue',
     padding : '8px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+  ':hover' : {
+    backgroundColor: 'salmon',
+    color:'black'
+  }
   };
 
 let persons = null;
@@ -74,7 +75,11 @@ if(this.state.showPersons ){
     </div>
  
  );
-style.backgroundColor='red';
+  style.backgroundColor='red';
+  style[':hover'] = {
+  backgroundColor: 'lightgreen',
+  color:'black'
+}
 }
 
 const classes=[];
@@ -94,7 +99,7 @@ return(
   <h1> Hi this is react JS</h1>
   <p className={ classes.join(' ') }> Its reallly working</p>
   <button
-  style={style}
+  style={style}            
   onClick={this.togglePersonsHandler}>  Toggle Person
   </button>
  {persons}
@@ -102,4 +107,4 @@ return(
 );
 }
 }
-export default App
+export default Radium(App);
