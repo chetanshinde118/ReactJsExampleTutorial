@@ -1,6 +1,5 @@
 import React from 'react';
 import './Person.css';
-import Radium from 'radium';
 
 const Person = ( props ) => {
 
@@ -23,4 +22,4 @@ const style={
     
 }
 
-export default Radium(Person);
+export default Person;
