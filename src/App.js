@@ -1,6 +1,6 @@
 import React ,{ Component } from 'react';
 import './App.css';
-import Radium from "radium";
+import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 class App extends Component {
   
@@ -95,6 +95,7 @@ if(this.state.persons.length<=1){
 
 return(
 
+  <StyleRoot>
   <div className='App'>
   <h1> Hi this is react JS</h1>
   <p className={ classes.join(' ') }> Its reallly working</p>
@@ -104,6 +105,7 @@ return(
   </button>
  {persons}
   </div>
+  </StyleRoot>
 );
 }
 }
