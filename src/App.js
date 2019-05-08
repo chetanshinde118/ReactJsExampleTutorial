@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 class App extends Component {
   
@@ -71,7 +70,7 @@ if(this.state.showPersons ){
   key=  { person.id}
   
   changed ={(event)=> this.nameChangedHandler(event, person.id)}/>
-    })}   
+    })}  
     </div>
  
  );
@@ -95,7 +94,6 @@ if(this.state.persons.length<=1){
 
 return(
 
-  <StyleRoot>
   <div className='App'>
   <h1> Hi this is react JS</h1>
   <p className={ classes.join(' ') }> Its reallly working</p>
@@ -105,8 +103,8 @@ return(
   </button>
  {persons}
   </div>
-  </StyleRoot>
+
 );
 }
 }
-export default Radium(App);
+export default App;
